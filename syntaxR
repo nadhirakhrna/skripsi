@@ -849,9 +849,9 @@ g<-sum(B)
 g
 P<-B/g 
 head(P) 
-KB=data.frame(as.matrix(P)) 
-dim(KB)
-#write_xlsx(KB, "4.MultipelManual_3 Matriks Korespondensi Burt.xlsx") 
+P=data.frame(P) 
+dim(P)
+#write_xlsx(P, "4.MultipelManual_3 Matriks Korespondensi Burt.xlsx") 
 
 ##Matriks Residual Standar 
 ###proporsi kolom Burt (penjumlahan terhadap kolom dari matriks korespondensi)
@@ -867,8 +867,8 @@ diagC
 eP <- C %*% t(C) 
 S = (P-eP)/sqrt(eP); S
 head(S) 
-res=data.frame(as.matrix(S)) ;dim(res)
-#write_xlsx(res, "4.MultipelManual_5 Matriks Residual Standar.xlsx") 
+S=data.frame(S) ;dim(S)
+#write_xlsx(S, "4.MultipelManual_5 Matriks Residual Standar.xlsx") 
 
 ##Inersia manual 
 J<-dim(indikator)[2] 
@@ -891,8 +891,8 @@ ks=data.frame(as.matrix(KSC))
 KU<-cacoord(mca2,type = c("principal"), dim = NA) 
 KUC<-KU$columns 
 head(KUC)
-ku=data.frame(as.matrix(KUC)) 
-#write_xlsx(ku, "4.MultipelManual_7 Koordinat Utama.xlsx") 
+KUC=data.frame(KUC) 
+#write_xlsx(KUC, "4.MultipelManual_7 Koordinat Utama.xlsx") 
 
 ##Matriks Euclidean 
 distance=dist(KUC,method="euclidean") 
@@ -926,7 +926,7 @@ ind=dataJCA$indmat
 
 k=dim(ind)[2]
 B=dataJCA$Burt
-#write.table(B, file="5.JCA_2 Matriks Burt Akhir.csv", row.names=T,sep=";")
+#write.csv(B, file="5.JCA_2 Matriks Burt.csv")
 B2=dataJCA$Burt.upd
 #write.table(B2, file="5.JCA_3 Matriks Rekonstruksi Burt Akhir.csv", row.names=T,sep=";")
 b=sum(B)
@@ -1145,7 +1145,7 @@ K_f<-KUC_f[1:59,1:2]
 distance_f=dist(K_f,method="euclidean")
 df_distance=as.matrix(distance_f)
 head(df_distance)
-#view(df_distance)
+#view(df_distance) 
 #write.table(df_distance, file="5.JCA_913 df_distance Matriks Jarak Euclidean bismillah_skripsi_draft_4_try1 FIX.csv", row.names=T,sep=",")
 
 ##### Nilai Stress Setelah rekategorisasi#####
